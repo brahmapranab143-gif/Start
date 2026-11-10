@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: aura-shop
+    runtime: node
+    plan: starter
+    buildCommand: echo "no build needed"
+    startCommand: node server.js
+    disk:
+      name: aura-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DATA_DIR
+        value: /data
+      - key: ADMIN_PASSWORD
+        sync: false
